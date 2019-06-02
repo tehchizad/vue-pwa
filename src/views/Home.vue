@@ -22,7 +22,9 @@ export default {
   name: "home",
   components: { ZipSearch, ZipInfo, ClearInfo },
   data() {
-    return { info: null };
+    return {
+      info: null
+    };
   },
   methods: {
     async getZipInfo(zip) {
@@ -38,8 +40,8 @@ export default {
     showAlert() {
       return this.$ionic.alertController
         .create({
-          header: "Not valid",
-          message: "Please enter a valid US Zipcode",
+          header: "Not Valid",
+          message: "Please enter a valid US zipcode",
           buttons: ["OK"]
         })
         .then(a => a.present());
@@ -47,6 +49,3 @@ export default {
   }
 };
 </script>
-
-// https://youtu.be/6H1wftPS0oo?t=2308
- 

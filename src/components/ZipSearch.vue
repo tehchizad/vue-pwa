@@ -7,13 +7,13 @@
           <ion-input
             :value="zip"
             @input="zip = $event.target.value"
-            placeholder="Enter zipcode"
+            placeholder="Enter US Zipcode"
             name="zip"
           ></ion-input>
         </ion-item>
       </ion-col>
       <ion-col>
-        <ion-button type="submit" color="secondary" expand="block">Find</ion-button>
+        <ion-button type="submit" color="primary" expand="block">Find</ion-button>
       </ion-col>
     </form>
   </ion-grid>
@@ -30,21 +30,25 @@ export default {
   methods: {
     onSubmit(e) {
       e.preventDefault();
-      const isValid = /^\d{5}$|^\d{5}-\d{4}$/.test(this.zip);
-      !isValid ? this.showAlert() : this.proxy();
-      this.zip = "";
+      // Zip Regex
+      const isValidZip = /(^\d{5}$)|(^\d{5}-\d{4}$)/.test(this.zip);
+      // Test for valid zip
+      if (!isValidZip) {
+        this.showAlert();
+        this.zip = "";
+      } else {
+        this.$emit("get-zip", this.zip);
+        this.zip = "";
+      }
     },
     showAlert() {
       return this.$ionic.alertController
         .create({
           header: "Enter Zipcode",
-          message: "Please enter a valid US Zipcode",
+          message: "Please enter a valid US zipcode",
           buttons: ["OK"]
         })
         .then(a => a.present());
-    },
-    proxy() {
-      this.$emit("get-zip", this.zip);
     }
   }
 };

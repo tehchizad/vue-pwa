@@ -3,8 +3,9 @@
 </template>
 
 <script>
-export default { name: "ClearInfo", props: ["info"] };
+export default {
+  name: "ClearInfo",
+  props: ["info"]
+};
 </script>
 
-<style>
-</style>

@@ -4,6 +4,7 @@
       <ion-card-subtitle>{{info['post code']}}</ion-card-subtitle>
       <ion-card-title>{{info['places'][0]['place name']}}</ion-card-title>
     </ion-card-header>
+
     <ion-card-content>
       <ion-list>
         <ion-item>
@@ -14,14 +15,14 @@
         </ion-item>
         <ion-item>
           <ion-label>
-            <strong>Lat:</strong>
-            {{info['places'][0]['latitude']}})
+            <strong>Latitude:</strong>
+            {{info['places'][0]['latitude']}}
           </ion-label>
         </ion-item>
         <ion-item>
           <ion-label>
-            <strong>Lon:</strong>
-            {{info['places'][0]['longitude']}})
+            <strong>Longitude:</strong>
+            {{info['places'][0]['longitude']}}
           </ion-label>
         </ion-item>
       </ion-list>
@@ -36,5 +37,3 @@ export default {
 };
 </script>
 
-<style>
-</style>
